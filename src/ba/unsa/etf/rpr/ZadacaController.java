@@ -1,14 +1,17 @@
 package ba.unsa.etf.rpr;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -22,9 +25,18 @@ public class ZadacaController implements Initializable {
     public ChoiceBox<String> choiceColor;
     public GridPane fldTabla;
     public TextField fldText;
+
+
+    public ListView<String> lvStudents;
+    public Slider sliderStudents;
+    //private ObservableList l= FXCollections.observableArrayList();
+    //private boolean prvi = true;
+    private String[] studenti={"Student1", "Student2", "Student3"};
+    //private StudentModel model;
+    //int brojStudenata;
+
     private String[] boje={"Plava", "Crvena", "Zelena", "Default"};
     private boolean start = true;
-
 
     public void getBoje(ActionEvent event){
         String myBoje = choiceColor.getValue();
@@ -67,6 +79,7 @@ public class ZadacaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         choiceColor.getItems().addAll(boje);
         choiceColor.setOnAction(this::getBoje);
+        lvStudents.getItems().addAll(studenti);
     }
 
     public void processNumbers(ActionEvent event) {
@@ -76,5 +89,10 @@ public class ZadacaController implements Initializable {
         }
         String value = ((Button) event.getSource()).getText();
         fldText.setText(fldText.getText()+value);
+    }
+
+    public void izlistajStudente(MouseEvent mouseEvent) {
+
+
     }
 }

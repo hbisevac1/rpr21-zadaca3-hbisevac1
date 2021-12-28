@@ -22,7 +22,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </HBox.margin>
             </TextField>
-            <Slider fx:id="sliderStudents" max="15.0" min="5.0" showTickLabels="true" showTickMarks="true">
+            <Slider fx:id="sliderStudents" max="15.0" min="5.0" onDragDetected="#izlistajStudente" showTickLabels="true" showTickMarks="true">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </HBox.margin>
@@ -39,7 +39,7 @@
             </Button>
          </children>
       </HBox>
-      <ListView fx:id="lvStudents" cache="true" cacheHint="SCALE_AND_ROTATE" orientation="HORIZONTAL" GridPane.rowIndex="1" />
+      <ListView fx:id="lvStudents" cache="true" cacheHint="SCALE_AND_ROTATE" GridPane.rowIndex="1" />
       <GridPane fx:id="fldTabla" hgap="5.0" vgap="3.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
 
           <columnConstraints>
