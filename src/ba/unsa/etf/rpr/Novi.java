@@ -14,12 +14,5 @@ public class Novi {
         stage.close();
     }
 
-    public void initialize(){
-        fldIme.textProperty().addListener(
-                (obs, stara, nova) ->{
-
-                }
-        );
-    }
 
 }

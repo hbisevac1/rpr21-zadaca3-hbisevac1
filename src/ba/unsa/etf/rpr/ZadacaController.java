@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import javax.swing.plaf.ActionMapUIResource;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +24,6 @@ public class ZadacaController implements Initializable {
     public TextField fldText;
     private String[] boje={"Plava", "Crvena", "Zelena", "Default"};
     private boolean start = true;
-
 
 
     public void getBoje(ActionEvent event){
