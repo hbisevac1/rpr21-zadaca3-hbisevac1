@@ -1,0 +1,15 @@
+.defaultPolje{
+    -fx-button-color: lightgray;
+}
+
+.redPolje{
+    -fx-background-color: red;
+}
+
+.greenPolje{
+    -fx-background-color: green;
+}
+
+.bluePolje{
+    -fx-background-color: skyblue;
+}
