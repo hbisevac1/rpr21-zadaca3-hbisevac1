@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import java.net.*?>
-<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -19,7 +17,7 @@
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2">
          <children>
-            <TextField fx:id="fldText" prefHeight="26.0" prefWidth="60.0">
+            <TextField fx:id="fldText" editable="false" prefHeight="26.0" prefWidth="60.0">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </HBox.margin>
@@ -57,52 +55,52 @@
             <RowConstraints maxHeight="185.39999999999998" minHeight="1.0" prefHeight="118.80000000000001" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-             <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="60.0" text="7" >
+             <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="47.0" prefWidth="60.0" text="7">
                  <stylesheets>
                      <URL value="@/css/zadaca3.css" />
                  </stylesheets>
              </Button>
-             <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="60.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" >
+             <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="47.0" prefWidth="60.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                  <stylesheets>
                      <URL value="@/css/zadaca3.css" />
                  </stylesheets>
              </Button>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="60.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" >
+            <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="47.0" prefWidth="60.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2">
                 <stylesheets>
                     <URL value="@/css/zadaca3.css" />
                 </stylesheets>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="60.0" text="1" GridPane.rowIndex="2" >
+            <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="47.0" prefWidth="60.0" text="1" GridPane.rowIndex="2">
                 <stylesheets>
                     <URL value="@/css/zadaca3.css" />
                 </stylesheets>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="60.0" text="8" GridPane.columnIndex="1" >
+            <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="47.0" prefWidth="60.0" text="8" GridPane.columnIndex="1">
                 <stylesheets>
                     <URL value="@/css/zadaca3.css" />
                 </stylesheets>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="60.0" text="9" GridPane.columnIndex="2" >
+            <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="47.0" prefWidth="60.0" text="9" GridPane.columnIndex="2">
                 <stylesheets>
                     <URL value="@/css/zadaca3.css" />
                 </stylesheets>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="60.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" >
+            <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="47.0" prefWidth="60.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
                 <stylesheets>
                     <URL value="@/css/zadaca3.css" />
                 </stylesheets>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="60.0" text="4" GridPane.rowIndex="1" >
+            <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="47.0" prefWidth="60.0" text="4" GridPane.rowIndex="1">
                 <stylesheets>
                     <URL value="@/css/zadaca3.css" />
                 </stylesheets>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="60.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" >
+            <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="47.0" prefWidth="60.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
                 <stylesheets>
                     <URL value="@/css/zadaca3.css" />
                 </stylesheets>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="60.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" >
+            <Button mnemonicParsing="false" onAction="#processNumbers" prefHeight="47.0" prefWidth="60.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2">
                 <stylesheets>
                     <URL value="@/css/zadaca3.css" />
                 </stylesheets>

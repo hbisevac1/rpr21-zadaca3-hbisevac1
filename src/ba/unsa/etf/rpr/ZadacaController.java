@@ -6,10 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import javax.swing.plaf.ActionMapUIResource;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,7 +22,9 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class ZadacaController implements Initializable {
     public ChoiceBox<String> choiceColor;
     public GridPane fldTabla;
+    public TextField fldText;
     private String[] boje={"Plava", "Crvena", "Zelena", "Default"};
+    private boolean start = true;
 
 
 
@@ -64,5 +69,14 @@ public class ZadacaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         choiceColor.getItems().addAll(boje);
         choiceColor.setOnAction(this::getBoje);
+    }
+
+    public void processNumbers(ActionEvent event) {
+        if(start){
+            fldText.setText("");
+            start=false;
+        }
+        String value = ((Button) event.getSource()).getText();
+        fldText.setText(fldText.getText()+value);
     }
 }
