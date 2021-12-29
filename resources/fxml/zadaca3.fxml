@@ -22,7 +22,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </HBox.margin>
             </TextField>
-            <Slider fx:id="sliderStudents" max="15.0" min="5.0" onDragDetected="#izlistajStudente" showTickLabels="true" showTickMarks="true">
+            <Slider fx:id="sliderStudents" blockIncrement="1.0" max="15.0" min="5.0"  showTickLabels="true" showTickMarks="true" value="5.0">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </HBox.margin>

@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -25,12 +26,10 @@ public class ZadacaController implements Initializable {
     public ChoiceBox<String> choiceColor;
     public GridPane fldTabla;
     public TextField fldText;
-
+    private boolean prvihPet = true;
 
     public ListView<String> lvStudents;
     public Slider sliderStudents;
-    //private ObservableList l= FXCollections.observableArrayList();
-    //private boolean prvi = true;
     private String[] studenti={"Student1", "Student2", "Student3", "Student4", "Student5", "Student6", "Student7", "Student8", "Student9"
             , "Student10", "Student11", "Student12", "Student13", "Student14", "Student15"};
     //private StudentModel model;
@@ -80,7 +79,16 @@ public class ZadacaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         choiceColor.getItems().addAll(boje);
         choiceColor.setOnAction(this::getBoje);
-        lvStudents.getItems().addAll(studenti);
+        brojStudenata = (int) sliderStudents.getValue();
+        for (int i=0; i<brojStudenata; i++) lvStudents.getItems().add(studenti[i]);
+        sliderStudents.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                brojStudenata = (int) sliderStudents.getValue();
+                lvStudents.getItems().clear();
+                for (int i=0; i<brojStudenata; i++) lvStudents.getItems().add(studenti[i]);
+            }
+        });
     }
 
     public void processNumbers(ActionEvent event) {
@@ -92,14 +100,19 @@ public class ZadacaController implements Initializable {
         fldText.setText(fldText.getText()+value);
     }
 
-    public void izlistajStudente(MouseEvent mouseEvent) {
+
+    /*public void izlistajStudente(MouseEvent mouseEvent) {
         sliderStudents.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
                 brojStudenata = (int) sliderStudents.getValue();
-                //for (int i=0; i<brojStudenata; i++) lvStudents.getItems().get(i);
+                if(prvihPet) {
+                    prvihPet=false;
+                }
+                else lvStudents.getItems().clear();
+                for (int i=0; i<brojStudenata; i++) lvStudents.getItems().add(studenti[i]);
             }
         });
 
-    }
+    }*/
 }

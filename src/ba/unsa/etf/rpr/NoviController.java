@@ -44,7 +44,7 @@ public class NoviController {
                     progressBar.setProgress(round/100);
                     progressBar.getStyleClass().removeAll("-fx-accent: red");
                     progressBar.setStyle("-fx-accent: red");
-                    pomocni=fldIme.getText();
+                    pomocni = fldIme.getText();
                 }
                 else if (fldIme.getText().length()==10){
                     progress=1.0;
