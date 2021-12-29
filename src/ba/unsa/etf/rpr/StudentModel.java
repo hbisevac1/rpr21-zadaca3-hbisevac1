@@ -7,7 +7,7 @@ public class StudentModel {
     private ObservableList<Student> studenti = FXCollections.observableArrayList();
 
     public void napuni(){
-        for(int i=0; i<14; i++){
+        for(int i=0; i<5; i++){
             int broj=i+1;
             String novi="Student"+broj;
             studenti.add(new Student(novi));

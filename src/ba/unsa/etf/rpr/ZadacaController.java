@@ -25,15 +25,16 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 
 public class ZadacaController implements Initializable {
+
     public ChoiceBox<String> choiceColor;
     public GridPane fldTabla;
     public TextField fldText;
     private boolean prvihPet = true;
     public ListView<String> lvStudents;
     public Slider sliderStudents;
-    //private String[] studenti={"Student1", "Student2", "Student3", "Student4", "Student5", "Student6", "Student7", "Student8", "Student9", "Student10", "Student11", "Student12", "Student13", "Student14", "Student15"};
     private StudentModel model=new StudentModel();
     private int brojStudenata;
+    public NoviController noviController;
 
     private String[] boje={"Plava", "Crvena", "Zelena", "Default"};
     private boolean start = true;
@@ -63,12 +64,30 @@ public class ZadacaController implements Initializable {
     }
 
     public void actionNewWindow(ActionEvent actionEvent) throws IOException {
+        Stage myStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/novi.fxml"));
+        loader.load();
+        noviController = loader.getController();
+
+        myStage.setOnHiding((event) -> {
+            model.dodaj(new Student(noviController.fldIme.getText()));
+            lvStudents.getItems().clear();
+            for (int i=0; i<model.getStudenti().size(); i++) lvStudents.getItems().add(String.valueOf(model.getStudenti().get(i)));
+        });
+
+
+        myStage.setTitle("Unos studenta");
+        myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        myStage.setResizable(true);
+        myStage.show();
+/*
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/novi.fxml"));
         stage.setTitle("Unos studenta");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         stage.setResizable(true);
         stage.show();
+*/
     }
 
     @Override
@@ -76,6 +95,7 @@ public class ZadacaController implements Initializable {
         choiceColor.getItems().addAll(boje);
         choiceColor.setOnAction(this::getBoje);
         brojStudenata = (int) sliderStudents.getValue();
+        lvStudents.getItems().clear();
         for (int i=0; i<brojStudenata; i++) lvStudents.getItems().add(String.valueOf(model.getStudenti().get(i)));
         sliderStudents.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -87,11 +107,15 @@ public class ZadacaController implements Initializable {
                     brojStudenata -= 1;
                     usao=true;
                 }
+                for(int i=model.getStudenti().size(); i<brojStudenata; i++) {
+                    int broj=i+1;
+                    model.dodaj(new Student("Student"+broj));
+                }
+
                 for (int i=0; i<brojStudenata; i++) lvStudents.getItems().add(String.valueOf(model.getStudenti().get(i)));
                 if(usao){
                     if(fldText.getText().isEmpty()) lvStudents.getItems().add("Student");
-                    else
-                    {
+                    else {
                         model.dodaj(new Student("Student"+fldText.getText()));
                         lvStudents.getItems().add(String.valueOf(model.getStudenti().get(brojStudenata)));
                     }
@@ -113,5 +137,7 @@ public class ZadacaController implements Initializable {
     public void dodajStudenta(Student s){
         model.dodaj(s);
     }
+
+
 
 }

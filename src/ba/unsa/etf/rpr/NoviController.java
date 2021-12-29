@@ -4,7 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
@@ -83,10 +83,6 @@ public class NoviController {
         else{
             String ime = fldIme.getText();
             Student s = new Student(ime);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/zadaca3.fxml"));
-            loader.load();
-            ZadacaController controller = new ZadacaController();
-            controller.dodajStudenta(s);
             Stage stage = (Stage) btnOK.getScene().getWindow();
             stage.close();
         }
