@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import java.net.URL?>
 <GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="290.0" vgap="5.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.NoviController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.0" minWidth="10.0" prefWidth="90.8" />
@@ -28,14 +28,14 @@
          <children>
             <ProgressBar fx:id="progressBar" layoutX="38.0" layoutY="7.0" prefWidth="200.0" progress="0.0">
                 <stylesheets>
-                    <URL value="@/css/novi.css"/>
+                    <URL value="@/css/novi.css" />
                 </stylesheets>
             </ProgressBar>
          </children>
       </Pane>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <buttons>
-          <Button defaultButton="true" mnemonicParsing="false" onAction="#klikNaBtn" text="OK" />
+          <Button fx:id="btnOK" defaultButton="true" mnemonicParsing="false" onAction="#klikNaBtn" text="Ok" />
             <Button fx:id="btnClose" cancelButton="true" mnemonicParsing="false" onAction="#actionEnd" text="Cancel" />
         </buttons>
       </ButtonBar>

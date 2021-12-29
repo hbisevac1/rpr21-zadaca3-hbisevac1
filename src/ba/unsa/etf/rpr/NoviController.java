@@ -3,16 +3,18 @@ package ba.unsa.etf.rpr;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class NoviController {
     public Button btnClose;
     public TextField fldIme;
     public ProgressBar progressBar;
+    public Button btnOK;
     private double progress=0;
 
     private String pomocni="";
@@ -70,7 +72,7 @@ public class NoviController {
         });
     }
 
-    public void klikNaBtn(ActionEvent event) {
+    public void klikNaBtn(ActionEvent event) throws IOException {
         if(fldIme.getText().length()<10){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Neispravno ime");
@@ -81,6 +83,12 @@ public class NoviController {
         else{
             String ime = fldIme.getText();
             Student s = new Student(ime);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/zadaca3.fxml"));
+            loader.load();
+            ZadacaController controller = new ZadacaController();
+            controller.dodajStudenta(s);
+            Stage stage = (Stage) btnOK.getScene().getWindow();
+            stage.close();
         }
     }
 }
