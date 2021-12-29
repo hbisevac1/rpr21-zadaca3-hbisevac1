@@ -42,15 +42,15 @@ public class NoviController {
                     else progress+=0.1;
                     double round=Math.round(progress*100);
                     progressBar.setProgress(round/100);
-                    progressBar.getStyleClass().removeAll("-fx-accent: red");
-                    progressBar.setStyle("-fx-accent: red");
+                    progressBar.getStyleClass().removeAll("zeleniProgress");
+                    progressBar.getStyleClass().add("crveniProgress");
                     pomocni = fldIme.getText();
                 }
                 else if (fldIme.getText().length()==10){
                     progress=1.0;
                     progressBar.setProgress(progress);
-                    progressBar.getStyleClass().removeAll("-fx-accent: red");
-                    progressBar.setStyle("-fx-accent: blue");
+                    progressBar.getStyleClass().removeAll("crveniProgress");
+                    progressBar.getStyleClass().add("zeleniProgress");
                     usao = true;
                 }
                 else{
@@ -62,8 +62,8 @@ public class NoviController {
                     else progress-=0.1;
                     double round=Math.round(progress*100);
                     progress=round/100;
-                    progressBar.getStyleClass().removeAll("-fx-accent: red");
-                    progressBar.setStyle("-fx-accent: blue");
+                    progressBar.getStyleClass().removeAll("crveniProgress");
+                    progressBar.getStyleClass().add("zeleniProgress");
                     pomocni2= fldIme.getText();
                 }
             }
