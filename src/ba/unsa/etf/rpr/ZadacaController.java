@@ -2,17 +2,11 @@ package ba.unsa.etf.rpr;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -80,14 +74,7 @@ public class ZadacaController implements Initializable {
         myStage.setScene(new Scene(loader.getRoot(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         myStage.setResizable(true);
         myStage.show();
-/*
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/novi.fxml"));
-        stage.setTitle("Unos studenta");
-        stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        stage.setResizable(true);
-        stage.show();
-*/
+
     }
 
     @Override
@@ -134,9 +121,7 @@ public class ZadacaController implements Initializable {
         fldText.setText(fldText.getText()+value);
     }
 
-    public void dodajStudenta(Student s){
-        model.dodaj(s);
-    }
+
 
 
 
