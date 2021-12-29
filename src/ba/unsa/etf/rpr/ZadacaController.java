@@ -31,9 +31,10 @@ public class ZadacaController implements Initializable {
     public Slider sliderStudents;
     //private ObservableList l= FXCollections.observableArrayList();
     //private boolean prvi = true;
-    private String[] studenti={"Student1", "Student2", "Student3"};
+    private String[] studenti={"Student1", "Student2", "Student3", "Student4", "Student5", "Student6", "Student7", "Student8", "Student9"
+            , "Student10", "Student11", "Student12", "Student13", "Student14", "Student15"};
     //private StudentModel model;
-    //int brojStudenata;
+    private int brojStudenata;
 
     private String[] boje={"Plava", "Crvena", "Zelena", "Default"};
     private boolean start = true;
@@ -92,7 +93,13 @@ public class ZadacaController implements Initializable {
     }
 
     public void izlistajStudente(MouseEvent mouseEvent) {
-
+        sliderStudents.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                brojStudenata = (int) sliderStudents.getValue();
+                //for (int i=0; i<brojStudenata; i++) lvStudents.getItems().get(i);
+            }
+        });
 
     }
 }

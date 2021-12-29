@@ -12,11 +12,14 @@ import javafx.stage.Stage;
 public class NoviController {
     public Button btnClose;
     public TextField fldIme;
-    public ProgressBar fldProgress;
-    private double progress;
-    private ZadacaController z3;
+    public ProgressBar progressBar;
+    private double progress=0;
+
     private String pomocni="";
-    boolean start=true;
+    private String pomocni2="";
+    boolean start = true;
+    boolean start2 = true;
+    boolean usao = false;
 
     public void actionEnd(ActionEvent actionEvent) {
         Stage stage = (Stage) btnClose.getScene().getWindow();
@@ -24,7 +27,6 @@ public class NoviController {
     }
 
     public void initialize(){
-
         fldIme.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
@@ -33,18 +35,36 @@ public class NoviController {
                         start = false;
                         pomocni=fldIme.getText();
                     }
-                    if(fldIme.getText().length()<pomocni.length()) progress-=0.1;
+                    if(fldIme.getText().length()<pomocni.length() || usao) {
+                        progress -= 0.1;
+                        usao = false;
+                    }
                     else progress+=0.1;
-                    fldProgress.setProgress(progress);
-                    fldProgress.getStyleClass().removeAll("-fx-accent: red");
-                    fldProgress.setStyle("-fx-accent: red");
+                    double round=Math.round(progress*100);
+                    progressBar.setProgress(round/100);
+                    progressBar.getStyleClass().removeAll("-fx-accent: red");
+                    progressBar.setStyle("-fx-accent: red");
                     pomocni=fldIme.getText();
                 }
+                else if (fldIme.getText().length()==10){
+                    progress=1.0;
+                    progressBar.setProgress(progress);
+                    progressBar.getStyleClass().removeAll("-fx-accent: red");
+                    progressBar.setStyle("-fx-accent: blue");
+                    usao = true;
+                }
                 else{
-                    progress+=0.1;
-                    fldProgress.setProgress(progress);
-                    fldProgress.getStyleClass().removeAll("-fx-accent: red");
-                    fldProgress.setStyle("-fx-accent: blue");
+                    if(start2){
+                        start2 = false;
+                        pomocni2=fldIme.getText();
+                    }
+                    if(fldIme.getText().length()>pomocni.length()) progress+=0.1;
+                    else progress-=0.1;
+                    double round=Math.round(progress*100);
+                    progress=round/100;
+                    progressBar.getStyleClass().removeAll("-fx-accent: red");
+                    progressBar.setStyle("-fx-accent: blue");
+                    pomocni2= fldIme.getText();
                 }
             }
         });
